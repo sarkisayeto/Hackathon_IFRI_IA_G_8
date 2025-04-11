@@ -17,7 +17,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 1. Clonez le dépôt :
 
    ```bash
-   git clone https://github.com/votre-utilisateur/Hackathon_IFRI_IA_G_8.git
+   git clonehttps://github.com/sarkisayeto/Hackathon_IFRI_IA_G_8.git
    cd Hackathon_IFRI_IA_G_8
 
 2. Créez un environnement virtuel Python :
