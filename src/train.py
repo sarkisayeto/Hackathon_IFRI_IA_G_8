@@ -1,4 +1,7 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns   
+from sklearn.metrics import confusion_matrix
 import joblib
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import train_test_split
@@ -10,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 
-df = pd.read_csv("D:/Hackathon_IFRI_IA_G_8/data/processed/df_clean.csv")
+df = pd.read_csv("../data/processed/df_clean.csv")
 
 X = df.drop(columns=["stade_irc"])  
 y = df["stade_irc"]
@@ -79,10 +82,18 @@ from sklearn.metrics import accuracy_score
 train_preds = model.predict(X_train)
 test_preds = model.predict(X_test)
 
-# Calcul des précisions
+# calcul de precision avec  précision, rappel, F1-score
+from sklearn.metrics import precision_score, recall_score, f1_score
+precision = precision_score(y_test, test_preds, average='weighted')
+recall = recall_score(y_test, test_preds, average='weighted')
+f1 = f1_score(y_test, test_preds, average='weighted')
+
+print(f"Précision : {precision:.2f}")
+print(f"Rappel : {recall:.2f}")
+print(f"f1-score : {f1:.2f}")
+
 train_acc = accuracy_score(y_train, train_preds)
 test_acc = accuracy_score(y_test, test_preds)
-
 print(f"Accuracy sur Train: {train_acc:.2f}")
 print(f"Accuracy sur Test: {test_acc:.2f}")
 
@@ -100,3 +111,11 @@ print("Profondeur :", info['depth'])
 print("Feuilles :", info['leaves'])
 print("Score train :", info['score_train']*100)
 print("Score test :", model.score(X_test, y_test)*100)
+
+# faire une matrix de confusion
+cm = confusion_matrix(y_test, y_pred)
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+plt.xlabel('Prédit')
+plt.ylabel('Réel')
+plt.title('Matrice de confusion')
+plt.show()
