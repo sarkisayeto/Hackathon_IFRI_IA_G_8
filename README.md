@@ -1,6 +1,9 @@
 # Hackathon_IFRI_IA_G_8
 
-Ce projet a été développé dans le cadre du Hackathon IFRI IA G8. Il contient une API Flask, des notebooks d'exploration, des scripts pour entraîner des modèles d'apprentissage automatique, et une interface utilisateur avec Streamlit.
+Ce projet a été développé dans le cadre du Hackathon IFRI IA G8. Il contient une API Flask, un notebook d'exploration, des scripts pour entraîner des modèles d'apprentissage automatique, et une interface utilisateur avec Streamlit.
+
+Cette application permet de prédire le stade de l'Insuffisance Rénale Chronique (IRC) à partir de données cliniques et biologiques.
+Elle utilise le modèle de Machine Learning entraîné sur des données patients du CNHU.
 
 ## Prérequis
 
@@ -34,9 +37,9 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 cd src
 
 2. Lancez le script d'entraînement :
-python train_model.py
+python train.py
 
-Ce script entraînera le modèle et sauvegardera les fichiers nécessaires (par exemple, le modèle entraîné) dans le dossier models/.
+### Ce script entraînera le modèle et sauvegardera les fichiers nécessaires (par exemple, le modèle entraîné) dans le dossier src/. au nom de arbre_complet.pkl
 
 
 ## Lancement de l'API Flask
@@ -53,7 +56,7 @@ python app.py
 ## Test avec Streamlit
 
 1. Ouvrez un nouveau Shell pour le test avec streamlit :
-2. Accédez au dossier de l'API Flask apres avoir avoir activé l'environnement :
+2. Accédez au dossier de l'API Flask apres avoir activé l'environnement :
 cd Flask_API
 
 3. Lancez l'application Streamlit :
@@ -63,9 +66,9 @@ streamlit run Frontend.py
 
 
 ## Structure du projet
-Flask_API/ : Contient les fichiers pour l'API Flask.
-notebooks/ : Contient les notebooks Jupyter pour l'exploration des données.
-src/ : Contient les scripts pour l'entraînement des modèles.
+Flask_API/ : Contient les fichiers pour l'API Flask. <br>
+notebooks/ : Contient les notebooks Jupyter pour l'exploration des données.<br>
+src/ : Contient les scripts pour l'entraînement des modèles.<br>
 data/ : Contient les données brutes et traitées.
 
 
