@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 
 # Chargement des objets enregistrés
-model_info = joblib.load("D:/Hackathon_IFRI_IA_G_8/src/arbre_complet.pkl")
+model_info = joblib.load("../src/arbre_complet.pkl")
 model = model_info['model']
 expected_features = model_info['features']
 scaler = model_info['scaler']
